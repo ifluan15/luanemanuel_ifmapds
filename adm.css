@@ -1,0 +1,381 @@
+/* adm.css */
+/* as as*/
+body {
+    align-items: flex-start;
+    padding-top: 60px;
+}
+
+.cards-resumo {
+    display: flex;
+    gap: var(--espaco-md);
+    margin-bottom: var(--espaco-lg);
+}
+
+.card-resumo {
+    flex: 1;
+    background-color: var(--branco);
+    border-radius: var(--borda-radius-lg);
+    padding: var(--espaco-lg);
+    text-align: center;
+    /* --- CORREÇÃO DE VISIBILIDADE --- */
+    border: 1px solid #dcdcdc !important; 
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07) !important; 
+}
+
+.card-numero {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--verde-tabela);
+}
+
+.card-label {
+    font-size: 13px;
+    color: var(--cinza-secundario);
+}
+
+/* --- ESTILOS DO MENU RETRÁTIL (ACCORDION) --- */
+.painel-retratil-container {
+    padding: 0 !important;
+    overflow: hidden;
+    margin-bottom: var(--espaco-lg);
+    background-color: var(--branco);
+    border-radius: var(--borda-radius-lg);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07) !important;
+    border: 1px solid #dcdcdc !important;
+}
+
+.titulo-retratil {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background-color: var(--branco);
+    transition: background-color 0.2s ease;
+    user-select: none;
+}
+
+.titulo-retratil:hover {
+    background-color: #f9f9f9;
+}
+
+.titulo-retratil h3 {
+    color: var(--verde-tabela);
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.seta-retratil {
+    font-size: 14px;
+    color: var(--cinza-secundario);
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+/* Estado inicial do bloco: escondido e zerado */
+#blocoServidor.conteudo-retratil {
+    max-height: 0 !important;
+    overflow: hidden !important;
+    padding: 0 24px !important;
+    opacity: 0 !important;
+    display: block !important; 
+    transition: max-height 0.3s ease-out, padding 0.3s ease, opacity 0.2s ease;
+    color: var(--cinza-texto);
+}
+
+/* GATILHO QUE O JAVASCRIPT ATIVA PARA ABRIR O PAINEL */
+#blocoServidor.conteudo-retratil.aberto {
+    max-height: 600px !important; 
+    padding: 10px 24px 24px 24px !important;
+    opacity: 1 !important;
+}
+
+/* GATILHO PARA ROTACIONAR A SETA EM 180 GRAUS */
+.seta-retratil.rodada {
+    transform: rotate(180deg);
+}
+
+.instrucao-painel {
+    color: var(--cinza-secundario);
+    margin-bottom: var(--espaco-md);
+    font-size: 14px;
+    width: 100%;
+}
+
+.secao-gerencial-btn {
+    margin-bottom: var(--espaco-md);
+    width: 100%;
+}
+
+.divisor-painel {
+    height: 1px;
+    background-color: var(--cinza-borda);
+    margin: var(--espaco-md) 0;
+    width: 100%;
+}
+
+/* --- CORREÇÃO TÉCNICA: CAIXAS INVISÍVEIS DO PORTAL DO SERVIDOR --- */
+#blocoServidor form, 
+#blocoServidor .exportar-selecao {
+    margin-top: var(--espaco-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-sm);
+    flex-wrap: wrap;
+}
+
+/* Força os textos explicativos fora do modal a ficarem cinza escuro */
+#blocoServidor label {
+    color: var(--cinza-texto) !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+    margin-bottom: 0 !important;
+}
+
+/* Força os inputs de arquivos e selects a ficarem visíveis com bordas nítidas */
+#blocoServidor input[type="file"],
+#blocoServidor select {
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+    border: 1px solid #cccccc !important; 
+    background-color: #ffffff !important;
+    color: var(--cinza-texto) !important;
+    font-size: 13px !important;
+    height: 38px !important;
+    outline: none !important;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05) !important;
+}
+
+#blocoServidor input[type="file"] {
+    background-color: #f8f9fa !important;
+    cursor: pointer;
+}
+
+#blocoServidor button {
+    background-color: var(--verde-tabela);
+    color: var(--branco);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+    height: 38px;
+    transition: background-color 0.2s;
+}
+
+#blocoServidor button:hover {
+    background-color: var(--verde-escuro-hover);
+}
+
+#statusImportacao {
+    font-size: 13px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: var(--espaco-xs);
+}
+
+.botoes-sync {
+    display: flex;
+    gap: var(--espaco-sm);
+    flex-wrap: wrap;
+    margin-bottom: var(--espaco-sm);
+}
+
+.btn-sync {
+    background-color: var(--verde-tabela);
+    color: var(--branco);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-sync:hover {
+    background-color: var(--verde-escuro-hover);
+}
+
+.sync-status {
+    font-size: 13px;
+    color: var(--cinza-secundario);
+}
+
+.alerta-conflito {
+    padding: var(--espaco-md);
+    border-radius: var(--borda-radius);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.alerta-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+.alerta-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* --- ESTILOS DA JANELA MODAL DE CADASTRO --- */
+.modal-cadastro {
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center; 
+    justify-content: center;
+}
+
+.modal-conteudo {
+    background-color: var(--branco) !important;
+    padding: var(--espaco-lg);
+    border-radius: var(--borda-radius-lg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    color: var(--cinza-texto) !important;
+    text-align: left;
+}
+
+.modal-conteudo h2 {
+    color: var(--verde-tabela) !important;
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.modal-conteudo .campo-grupo {
+    margin-bottom: var(--espaco-sm);
+}
+
+.modal-cadastro .campo-grupo label {
+    display: block !important;
+    color: var(--cinza-texto) !important; 
+    font-size: 14px !important;
+    font-weight: bold !important;
+    margin-bottom: var(--espaco-xs) !important;
+}
+
+.modal-cadastro .campo-grupo input[type="text"], 
+.modal-cadastro .campo-grupo select {
+    width: 100% !important; 
+    padding: 8px 12px !important; 
+    border: 1px solid var(--cinza-borda) !important; 
+    border-radius: 4px !important; 
+    background-color: var(--branco) !important; 
+    color: var(--cinza-texto) !important;
+    font-size: 14px !important;
+    height: 38px !important;
+    box-sizing: border-box !important;
+}
+
+.modal-cadastro .campo-grupo input::placeholder {
+    color: var(--cinza-secundario) !important;
+    opacity: 0.8;
+}
+
+.fechar-modal {
+    position: absolute;
+    right: 15px; 
+    top: 10px;
+    font-size: 24px; 
+    cursor: pointer;
+    color: var(--cinza-secundario);
+}
+
+.fechar-modal:hover { 
+    color: var(--cinza-texto); 
+}
+
+.btn-salvar-prof {
+    background-color: var(--verde-tabela); 
+    color: var(--branco); 
+    border: none; 
+    padding: 10px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    margin-top: var(--espaco-sm);
+    width: 100%;
+}
+
+.btn-salvar-prof:hover {
+    background-color: var(--verde-escuro-hover);
+}
+
+#msgCadastro {
+    margin-top: var(--espaco-sm); 
+    font-weight: bold;
+}
+
+.btn-cadastro-manual {
+    background-color: var(--verde-tabela);
+    color: var(--branco);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-cadastro-manual:hover {
+    background-color: var(--verde-escuro-hover);
+}
+
+/* --- CLASSE GLOBAL PARA AS CAIXAS GERAIS (.grade-container-branca) --- */
+/* Força o navegador a aplicar esta regra por cima de qualquer regra do style.css */
+body.dashboard-ativo .grade-container-branca,
+body .grade-container-branca,
+.grade-container-branca {
+    background-color: #ffffff !important;
+    border: 2px solid #b0b8c4 !important; /* Tornou a borda um pouco mais escura e grossa */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12) !important; /* Sombra bem mais marcada (12%) */
+    border-radius: 12px !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    display: block !important;
+}
+
+
+@media (max-width: 768px) {
+    .cards-resumo { flex-direction: column; }
+    .botoes-sync { flex-direction: column; }
+}
+
+@keyframes girarSUAP {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.sincronizando-suap {
+    pointer-events: none; 
+    opacity: 0.7;
+    position: relative;
+}
+
+.sincronizando-suap::after {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 8px;
+    border: 2px solid #ffffff;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: girarSUAP 0.8s linear infinite;
+    vertical-align: middle;
+}
